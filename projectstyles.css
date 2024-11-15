@@ -13,8 +13,8 @@ body {
 
 
 header {
-  background-color: #4CAF50; /* Green background color for the nav */
-  color: #fff;
+  background-color: #B99470; /* Green background color for the nav */
+  color: #FCFAEE;
   padding: 10px 0;
 }
 
@@ -30,7 +30,7 @@ nav ul li {
 
 nav ul li a {
   text-decoration: none;
-  color: #fff;
+  color: #FCFAEE;
   font-weight: bold;
   font-size: 18px;
   padding: 10px 15px;
@@ -46,12 +46,14 @@ main {
   padding: 20px;
   text-align: center;
 }
-
+body {background-color: floralwhite;}
 h1 {
   color: #333;
 }
 
-
+a:link {
+  color: #FF0000;
+}
 footer {
   background-color: #333; /* Dark background color for footer */
   color: #fff;
