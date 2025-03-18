@@ -32,7 +32,117 @@ src="https://youtu.be/LIExX9St4oA?si=jc9Dvlt0wBfLmkuy">
     <p> Goal 16. Quality Education.</p>
     <img src="goal4.jpg">
   </body>
-  
+  meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Poor Quality Education Quiz</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            padding: 20px;
+            background-color: #f4f4f4;
+        }
+        .quiz-container {
+            max-width: 600px;
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0px 0px 10px rgba(0,0,0,0.1);
+        }
+        button {
+            margin-top: 10px;
+            padding: 10px;
+            background: #28a745;
+            color: white;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        button:hover {
+            background: #218838;
+        }
+    </style>
+</head>
+<body>
+
+<div class="quiz-container">
+    <h2>Poor Quality Education Quiz</h2>
+    <p id="question"></p>
+    <div id="answers"></div>
+    <button onclick="nextQuestion()">Next</button>
+    <p id="result"></p>
+</div>
+
+<script>
+    const quizData = [
+        {
+            question: "What is a common cause of poor quality education?",
+            options: ["Lack of qualified teachers", "Overfunding", "Too much technology", "Low student interest"],
+            answer: "Lack of qualified teachers"
+        },
+        {
+            question: "How does poor education affect society?",
+            options: ["Higher employment rates", "Economic decline", "Better job opportunities", "More innovation"],
+            answer: "Economic decline"
+        },
+        {
+            question: "What is one way to improve education quality?",
+            options: ["Reducing teacher salaries", "Investing in teacher training", "Cutting school hours", "Ignoring standardized tests"],
+            answer: "Investing in teacher training"
+        },
+        {
+            question: "Which of the following is an effect of overcrowded classrooms?",
+            options: ["Better individual attention", "Lower student performance", "Increased learning engagement", "Higher test scores"],
+            answer: "Lower student performance"
+        },
+        {
+            question: "Why is access to education important?",
+            options: ["It ensures equal opportunities", "It increases poverty", "It reduces the workforce", "It has no impact on development"],
+            answer: "It ensures equal opportunities"
+        }
+    ];
+
+    let currentQuestion = 0;
+    let score = 0;
+
+    function loadQuestion() {
+        if (currentQuestion < quizData.length) {
+            document.getElementById("result").textContent = "";
+            document.getElementById("question").textContent = quizData[currentQuestion].question;
+            const answersDiv = document.getElementById("answers");
+            answersDiv.innerHTML = "";
+
+            quizData[currentQuestion].options.forEach(option => {
+                let button = document.createElement("button");
+                button.textContent = option;
+                button.onclick = function() { checkAnswer(option); };
+                answersDiv.appendChild(button);
+            });
+        } else {
+            document.getElementById("question").textContent = "Quiz completed!";
+            document.getElementById("answers").innerHTML = "";
+            document.getElementById("result").textContent = `Your score: ${score} out of ${quizData.length}`;
+        }
+    }
+
+    function checkAnswer(answer) {
+        if (answer === quizData[currentQuestion].answer) {
+            score++;
+            document.getElementById("result").textContent = "Correct!";
+        } else {
+            document.getElementById("result").textContent = `Wrong! The correct answer is: ${quizData[currentQuestion].answer}`;
+        }
+    }
+
+    function nextQuestion() {
+        currentQuestion++;
+        loadQuestion();
+    }
+
+    loadQuestion();
+</script>
+
+</body>
     <p>fedoracelene.maynopas@smc.pshs.edu.ph</p>
   </footer>
 
